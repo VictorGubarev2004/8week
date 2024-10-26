@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-
+import math
 class Yadro:
     
-    # Константы формулы Вайзекера
+    # константы
     a = 15.7
     b = 17.8
     c = 0.71
@@ -21,7 +21,6 @@ class Yadro:
         self.split = None  # деление на 2 осколка
 
     def energy(self):
-        # Энергия связи
         a1 = Yadro.a * self.a
         a2 = Yadro.b * self.a ** (2 / 3)
         a3 = Yadro.c * (self.z ** 2) / (self.a ** (1 / 3))
@@ -63,8 +62,6 @@ class Yadro:
         self.split = self.a % 2 == 0 and self.z % 2 == 0 and self.n % 2 == 0
         return self.split
 
-
-# Создаем список ядер
 yadra = [
     Yadro(98, 252, "Cf-252"),
     Yadro(94, 238, "Pu-238"),
@@ -78,11 +75,11 @@ yadra = [
     Yadro(3, 7, "Li-7")
 ]
 
-# Вычисляем значения для графиков
+# значения для графиков
 z_values = [y.z for y in yadra]
 radius_values = [y.calculate_radius() for y in yadra]
 mass_values = [y.calculate_mass() for y in yadra]
-# График зависимости массы от количества протонов
+# график зависимости массы от количества протонов
 plt.figure()
 plt.plot(z_values, mass_values, marker='.', color = 'red')
 plt.xlabel('Количество протонов')
@@ -91,7 +88,7 @@ plt.title('Зависимость массы атома от количеств�
 plt.grid(True)
 plt.show()
 
-# График зависимости радиуса от количества протонов
+# график зависимости радиуса от количества протонов
 plt.figure()
 plt.plot(z_values, radius_values, marker='.', color = 'green')
 plt.xlabel('Количество протонов')
